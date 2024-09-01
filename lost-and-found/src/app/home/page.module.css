@@ -1,0 +1,28 @@
+.container{
+    position: relative;
+    height: 100dvh;
+    width: 100dvw;
+    overflow-x:hidden;
+}
+
+.mesg{
+    position: absolute;
+    top: 120px;
+    left: 40px;
+}
+.mesg h1{
+    font-size: 70px;
+}
+.mesg h3{
+    font-size: 50px;
+}
+
+.menu{
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%);
+    display: flex;
+    gap: 5%;
+
+}
