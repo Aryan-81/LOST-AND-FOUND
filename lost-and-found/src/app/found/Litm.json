@@ -1,0 +1,56 @@
+[
+    {
+        "obj": "phone",
+        "usr": "John Doe",
+        "usrid": "20xxDEP0010",
+        "description": "A white iPhone 12 with a cracked screen and a blue case."
+    },
+    {
+        "obj": "keys",
+        "usr": "Jane Smith",
+        "usrid": "20xxDEP0020",
+        "description": "A set of house keys with a red keychain that says 'Home Sweet Home'."
+    },
+    {
+        "obj": "laptop",
+        "usr": "unknown",
+        "usrid": "20xxDEP0030",
+        "description": "A silver MacBook Pro with stickers of various tech companies."
+    },
+    {
+        "obj": "backpack",
+        "usr": "Alice Johnson",
+        "usrid": "20xxDEP0040",
+        "description": "A blue backpack with a laptop compartment, containing books and a water bottle."
+    },
+    {
+        "obj": "watch",
+        "usr": "unknown",
+        "usrid": "20xxDEP0050",
+        "description": "A silver wristwatch with a leather strap and a cracked face."
+    },
+    {
+        "obj": "glasses",
+        "usr": "Michael Brown",
+        "usrid": "20xxDEP0060",
+        "description": "A pair of black-rimmed prescription glasses in a hard case."
+    },
+    {
+        "obj": "jacket",
+        "usr": "unknown",
+        "usrid": "20xxDEP0070",
+        "description": "A dark green winter jacket with a hood and zippered pockets."
+    },
+    {
+        "obj": "book",
+        "usr": "Emily Davis",
+        "usrid": "20xxDEP0080",
+        "description": "A hardcover novel titled 'The Great Adventure' with a red bookmark."
+    },
+    {
+        "obj": "earphones",
+        "usr": "unknown",
+        "usrid": "20xxDEP0090",
+        "description": "A pair of white wireless earphones in a small charging case."
+    }
+]

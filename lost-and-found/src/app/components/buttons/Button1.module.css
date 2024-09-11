@@ -1,8 +1,8 @@
 .button1 {
     position: relative;
-    background-color: #262626;
+    background-color: #1d2532;
     height: 4rem;
-    width: 16rem;
+    width: 19rem;
     border: 1px solid transparent;
     text-align: left;
     padding: 0.75rem;
@@ -14,13 +14,14 @@
     text-decoration: underline;
     text-underline-offset: 0.5rem;
     transition: all 0.5s;
+    cursor: pointer;
 }
 
 .button1:hover {
-    color: #f43f5e;
+    color: #3feef4;
     text-decoration: underline;
     text-underline-offset: 1rem;
-    border-color: #fb7185;
+    border-color: #71fbfb;
 }
 
 .button1:before,
@@ -31,6 +32,7 @@
     border-radius: 9999px;
     transition: all 0.5s;
     filter: blur(1rem);
+    
 }
 
 .button1:before {
@@ -39,6 +41,7 @@
     right: 0.25rem;
     top: 0.25rem;
     background-color: #8b5cf6;
+    z-index: 0;
 }
 
 .button1:after {
@@ -46,7 +49,7 @@
     height: 5rem;
     right: 2rem;
     top: 0.75rem;
-    background-color: #f43f5e;
+    background-color: #3fc7f4;
 }
 
 .button1:hover:before {

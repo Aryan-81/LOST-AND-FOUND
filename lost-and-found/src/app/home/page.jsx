@@ -2,29 +2,27 @@
 
 import styles from './page.module.css';
 import Button1 from '../components/buttons/Button1';
-import VantaGlobe from '../components/VantaGlobe';
-
+import Nav from '../components/Nav';
 export default function HomePage() {
-  const usr_name = 'person_1'
+  const usr_name = 'Adam'
 
   return (
-    <div className={styles.container}>
-      {/* <VantaGlobe/> */}
+    <main className={styles.container}>
+      <Nav/>
       <div className={styles.mesg}>
         <h1>Welcome,</h1>
         <h1>{usr_name}</h1>
-        <h3>to IIT Jammu lost and find website</h3>
+        <h3>to IIT Jammu Lost and Found Website</h3>
       </div>
 
 
       <div className={styles.menu}>
-        <Button1 text={'find object'} />
-        <Button1 text={'reported object'} />
-        <Button1 text={'Your List'} />
+        <Button1 text={'See Found/Lost Items'} href={'/items'} />
+        <Button1 text={'Report Items Found/Lost'} href={'/form'} />
       </div>
 
 
-    </div>
+    </main>
   );
 }
 
