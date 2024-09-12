@@ -1,0 +1,67 @@
+.button1 {
+    position: relative;
+    background-color: #1d2532;
+    height: 4rem;
+    width: 19rem;
+    border: 1px solid transparent;
+    text-align: left;
+    padding: 0.75rem;
+    color: #f5f5f5;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    text-decoration: underline;
+    text-underline-offset: 0.5rem;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.button1:hover {
+    color: #3feef4;
+    text-decoration: underline;
+    text-underline-offset: 1rem;
+    border-color: #71fbfb;
+}
+
+.button1:before,
+.button1:after {
+    content: '';
+    position: absolute;
+    z-index: 10;
+    border-radius: 9999px;
+    transition: all 0.5s;
+    filter: blur(1rem);
+    
+}
+
+.button1:before {
+    width: 3rem;
+    height: 3rem;
+    right: 0.25rem;
+    top: 0.25rem;
+    background-color: #8b5cf6;
+    z-index: 0;
+}
+
+.button1:after {
+    width: 5rem;
+    height: 5rem;
+    right: 2rem;
+    top: 0.75rem;
+    background-color: #3fc7f4;
+}
+
+.button1:hover:before {
+    right: 3rem;
+    bottom: -2rem;
+    box-shadow: 20px 20px 20px 30px #a21caf;
+}
+
+.button1:hover:after {
+    right: -2rem;
+}
+
+.button1:hover {
+    text-decoration-thickness: 2px;
+}

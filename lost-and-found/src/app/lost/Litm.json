@@ -1,0 +1,72 @@
+[
+    {
+        "obj": "wallet",
+        "usr": "unknown",
+        "usrid": "20xxDEPxxxx",
+        "description": "A black leather wallet with multiple cards and some cash.",
+        "staus":"found"
+    },
+    {
+        "obj": "laptop",
+        "usr": "john",
+        "usrid": "21yyDEPyyyy",
+        "description": "A silver MacBook Pro with a custom sticker on the cover.",
+        "staus":"found"
+    },
+    {
+        "obj": "watch",
+        "usr": "sara",
+        "usrid": "22zzDEPzzzz",
+        "description": "A Rolex watch with a gold strap, lost near the cafeteria.",
+        "staus":"found"
+    },
+    {
+        "obj": "backpack",
+        "usr": "mike",
+        "usrid": "23aaDEPaaaa",
+        "description": "A blue North Face backpack containing books and a laptop.",
+        "staus":"lost"
+    },
+    {
+        "obj": "phone",
+        "usr": "lisa",
+        "usrid": "24bbDEPbbbb",
+        "description": "An iPhone 13 with a cracked screen, last seen in the library.",
+        "staus":"lost"
+    },
+    {
+        "obj": "headphones",
+        "usr": "dave",
+        "usrid": "25ccDEPcccc",
+        "description": "A pair of Bose wireless headphones in a black case.",
+        "staus":"lost"
+    },
+    {
+        "obj": "keys",
+        "usr": "lucy",
+        "usrid": "26ddDEPdddd",
+        "description": "A set of house and car keys with a red keychain.",
+        "staus":"lost"
+    },
+    {
+        "obj": "umbrella",
+        "usr": "tom",
+        "usrid": "27eeDEPeffe",
+        "description": "A black umbrella with a wooden handle, left in the classroom.",
+        "staus":"found"
+    },
+    {
+        "obj": "jacket",
+        "usr": "jane",
+        "usrid": "28ffDEPfgfg",
+        "description": "A denim jacket with patches, lost during the concert.",
+        "staus":"lost"
+    },
+    {
+        "obj": "glasses",
+        "usr": "alice",
+        "usrid": "29ggDEPgggg",
+        "description": "A pair of prescription glasses with a black frame.",
+        "staus":"found"
+    }
+]
