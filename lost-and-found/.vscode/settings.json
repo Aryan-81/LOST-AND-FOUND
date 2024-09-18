@@ -1,0 +1,14 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "pgg",
+            "database": "lost_found_db",
+            "username": "postgres",
+            "password": "sql"
+        }
+    ]
+}

@@ -1,23 +1,17 @@
-// src/app/layout.js
-'use client'
+// app/layout
 
-import { useEffect } from 'react';
-
-import { useRouter } from 'next/navigation';
+'use client';
 import './globals.css';
+import AuthProvider from '../context/AuthProvider';
 
 export default function RootLayout({ children }) {
-  const router = useRouter();
-
-  useEffect(() => {
-    if (router.pathname === '') {
-      router.push('/home');
-    }
-  }, [router]);
-
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <AuthProvider>
+          <main>{children}</main>
+        </AuthProvider>
+      </body>
     </html>
   );
 }
