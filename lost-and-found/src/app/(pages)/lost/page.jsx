@@ -8,12 +8,12 @@ import data from './Litm.json';
 export default function Lost() {
     return (
         <main className={styles.Lost}>
+            <Nav />
             <div className={styles.contentNav}>
                 <Link href='/lost' ><img src="/lost.svg" alt="lost" /></Link>
                 <Link href='/found' ><img src="/find.svg" alt="found" /></Link>
                 <Link href='#' ><img src="/usritems.svg" alt="myItem" /></Link>
             </div>
-            <Nav />
             <div className={styles.ctr}>
                 <SVGCtr1 >
                     <div className={styles.lists}>

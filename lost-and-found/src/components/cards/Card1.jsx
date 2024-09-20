@@ -5,7 +5,8 @@ import { useState } from 'react';
 import styles from './Card1.module.css'
 import DetailsCard from '../DetailsCard'
 
-export default function Card1({ obj, usr, usrid, description, objid }) {
+export default function Card1({ obj, usr, usrid, description, objid, editAcess}) {
+    
     const [checked, setchecked] = useState('');
     
     const handleSelection = () => {
@@ -39,19 +40,19 @@ export default function Card1({ obj, usr, usrid, description, objid }) {
                 </div>
                 <hr style={{ position: 'relative', width: '1px', height: '90%' }} />
                 <label className={styles.text_d} style={{ margin: 'auto 0' }}>
-                    {description || 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Unum nescio,quo modo possit, si luxuriosus sit, finitas cupiditates habere.'}
+                    {description || 'Description not provided'}
                 </label>
             </div>
 
             <div className={styles.showDetail}>
                 <div className={styles.details}>
-                <button className={styles.hidebutton} onClick={handlehide}>hide</button>
+                <button className={styles.hidebutton} onClick={handlehide}><div className={styles.fab}/></button>
                     <DetailsCard
                         obj={obj}
                         usrid={usrid}
                         description={description}
                         usr={usr}
-
+                        editAcess={editAcess??false}
                     />
                     </div>
 

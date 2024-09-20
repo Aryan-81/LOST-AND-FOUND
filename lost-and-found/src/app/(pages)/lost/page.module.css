@@ -1,8 +1,10 @@
 .Lost{
     overflow: hidden;
+    height: 100vh;
     position: relative;
     background: linear-gradient(180deg, #1f3a5ae1 0%, #0c0d0e 100%);
 }
+
 .contentNav{
     position: fixed;
     right: 15px;
@@ -32,11 +34,13 @@
     height: 100dvh;
     width: 100dvw;
     position: relative;
+    
 }
 
 
 .lists{
-    margin: 90px 0 10px 7vw;
+    margin: 90px auto 10px auto;
+    width: 80%;
     display: flex;
     flex-direction: column;
     gap: 10px;

@@ -18,6 +18,7 @@ export default function HomePage() {
   return (
     <main className={styles.container}>
       <Nav />
+      <div className={styles.logout}><LogoutBtn type={'rdbtn'} /></div>
       <div className={styles.mesg}>
         <h1>Welcome,</h1>
         <h1>{username}</h1>
@@ -28,7 +29,7 @@ export default function HomePage() {
       <div className={styles.menu}>
         <Button1 text={'See Found/Lost Items'} href={'/items'} />
         <Button1 text={'Report Items Found/Lost'} href={'/form'} />
-        <LogoutBtn type={'rdbtn'} />
+        
       </div>
     </main>
   );

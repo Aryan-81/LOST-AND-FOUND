@@ -4,7 +4,7 @@ import styles from './LogoutBtn.module.css';
 export default function LogoutBtn({ type }) {
 
     const handleLogout = () => {
-        signOut({ callbackUrl: '/login' }); // Redirect to login page after logout
+        signOut({ callbackUrl: '/auth?action=login' });
     };
 
     if (type === 'rdbtn') {

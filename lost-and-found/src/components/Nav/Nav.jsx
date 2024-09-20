@@ -31,18 +31,23 @@ export default function Nav() {
                 </Link>
               </li>
               <li>
-                <Link href="#" className={styles.a}>
-                  Your Itmes
+                <Link href="\uritems" className={styles.a}>
+                  Your Items
                 </Link>
               </li>
             </ul>
           </li>
-          <li>
+          {/* <li>
             <Link href="\form" className={styles.a}>About</Link>
-          </li>
+          </li> */}
           <li>
             <Link href="/feedback" className={styles.a}>
               Feedback
+            </Link>
+          </li>
+          <li>
+            <Link href="/profile" className={styles.a}>
+              profile
             </Link>
           </li>
         </ul>

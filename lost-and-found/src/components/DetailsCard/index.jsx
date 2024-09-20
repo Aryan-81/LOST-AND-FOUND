@@ -1,6 +1,7 @@
+import DelBtn from '../buttons/DelBtn'
 import styles from './DetailsCard.module.css'
 
-export default function DetailsCard({ obj, usr, usrid, description, objid }) {
+export default function DetailsCard({ obj, usr, usrid, description, objid, editAcess }) {
     return (
         <div className={styles.container}>
             <div className={styles.wrapper}>
@@ -16,6 +17,12 @@ export default function DetailsCard({ obj, usr, usrid, description, objid }) {
                     <div className={styles.contact}>
                         contact details
                     </div>
+                    {editAcess ?
+                        <div className={styles.del}>
+                            <DelBtn />
+                        </div> :
+                        <></>}
+
                 </div>
 
             </div>

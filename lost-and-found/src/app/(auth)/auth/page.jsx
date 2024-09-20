@@ -1,13 +1,21 @@
 'use client';
 import { signIn } from 'next-auth/react';
-import { useState } from 'react';
+import { useState, useEffect, useCallback, memo } from 'react';
 import { useRouter } from 'next/navigation';
 import styles from './page.module.css';
 
-// Reusable Input Component
-const InputField = ({ type, name, placeholder, value, onChange }) => (
-  <input type={type} name={name} placeholder={placeholder} value={value} onChange={onChange} required />
-);
+// Memoized Input Field to prevent unnecessary re-renders
+const InputField = memo(({ type, name, placeholder, value, onChange }) => (
+  <input
+    type={type}
+    name={name}
+    placeholder={placeholder}
+    value={value}
+    onChange={onChange}
+    required
+    className={styles.input}
+  />
+));
 
 export default function AuthPage() {
   const router = useRouter();
@@ -19,78 +27,84 @@ export default function AuthPage() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
-  // Toggle Panels
-  const togglePanel = (isSignUp) => setIsRightPanelActive(isSignUp);
+  // Toggle between login and signup and update URL
+  const togglePanel = (isSignUp) => {
+    setIsRightPanelActive(isSignUp);
+    const action = isSignUp ? 'login' : 'signup';
+    router.push(`/auth?action=${action}`, undefined, { shallow: true });
+  };
 
-  // Handle form change for both sign-in and sign-up
-  const handleInputChange = (e, type) => {
+  // Set initial panel state based on URL query parameter
+  useEffect(() => {
+    const action = new URLSearchParams(window.location.search).get('action');
+    setIsRightPanelActive(action === 'login');
+  }, []);
+
+  // Handle input changes for both forms
+  const handleInputChange = useCallback((e, type) => {
     setAuthData((prevData) => ({
       ...prevData,
       [type]: { ...prevData[type], [e.target.name]: e.target.value },
     }));
-  };
+  }, []);
 
-  // Handle form submissions
-  const handleFormSubmit = async (e, type) => {
+  // Handle form submissions for both sign-up and sign-in
+  const handleFormSubmit = useCallback(async (e, type) => {
     e.preventDefault();
     setLoading(true);
     setError('');
 
-    if (type === 'signUp') {
-      // Sign Up Logic
-      try {
+    const { email, password } = authData[type];
+    const userData = type === 'signUp' ? authData.signUp : authData.signIn;
+
+    try {
+      if (type === 'signUp') {
+        // Sign-up logic
         const res = await fetch('/api/auth/signup', {
           method: 'POST',
-          body: JSON.stringify(authData.signUp),
           headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(userData),
         });
 
         if (res.ok) {
-          // Sign-up successful, attempt to sign in
+          // Sign in after sign-up
           const signInRes = await signIn('credentials', {
             redirect: false,
-            email: authData.signUp.email,
-            password: authData.signUp.password,
+            email,
+            password,
           });
 
-          if (signInRes?.error) {
-            setError('Sign-in after sign-up failed');
+          if (!signInRes?.error) {
+            router.push('/home');
           } else {
-            setError('');
-            router.push('/home'); // Redirect after successful sign-in
+            setError('Sign-in after sign-up failed');
           }
         } else {
           const errorData = await res.json();
-          setError(errorData.error || errorData.message || 'Sign-up failed');
+          setError(errorData.error || 'Sign-up failed');
         }
-      } catch (error) {
-        setError('Something went wrong during sign-up.');
-      }
-    } else {
-      // Sign In Logic
-      try {
+      } else {
+        // Sign-in logic
         const res = await signIn('credentials', {
           redirect: false,
-          email: authData.signIn.email,
-          password: authData.signIn.password,
+          email,
+          password,
         });
 
-        if (res?.error) {
-          setError(res.error || 'Sign-in failed');
-        } else {
-          setError('');
+        if (!res?.error) {
           router.push('/home');
+        } else {
+          setError(res.error || 'Sign-in failed');
         }
-      } catch (error) {
-        setError('Something went wrong during sign-in.');
       }
+    } catch (error) {
+      setError(`Something went wrong during ${type === 'signUp' ? 'sign-up' : 'sign-in'}.`);
+    } finally {
+      setLoading(false);
     }
-
-    setLoading(false);
-  };
+  }, [authData, router]);
 
   const spans = new Array(200).fill(0);
-
   return (
     <div className={styles.ctr}>
       <section className={styles.section}>
@@ -135,7 +149,7 @@ export default function AuthPage() {
           {/* Sign-In Form */}
           <div className={`${styles.formContainer} ${styles.signInContainer}`}>
             <form onSubmit={(e) => handleFormSubmit(e, 'signIn')}>
-              <h1>Sign in</h1>
+              <h1>Log In</h1>
               {error && !isRightPanelActive && <p className={styles.error}>{error}</p>}
               <span>or use your account</span>
               <InputField
@@ -165,16 +179,23 @@ export default function AuthPage() {
               <div className={`${styles.overlayPanel} ${styles.overlayLeft}`}>
                 <h1>Welcome Back!</h1>
                 <p>To keep connected with us please login with your personal info</p>
-                <button className={styles.ghost} onClick={() => togglePanel(false)}>
-                  Sign In
-                </button>
+                <div className={styles.chng}>
+                  <p>Click the button below to sign up if you don't have an account yet.</p>
+                  <button className={styles.ghost} onClick={() => togglePanel(false)}>
+                    Sign Up
+                  </button>
+                </div>
+
               </div>
               <div className={`${styles.overlayPanel} ${styles.overlayRight}`}>
                 <h1>Hello, Friend!</h1>
                 <p>Enter your personal details and start your journey with us</p>
-                <button className={styles.ghost} onClick={() => togglePanel(true)}>
-                  Sign Up
-                </button>
+                <div className={styles.chng}>
+                  <p>Click the button below to log in if you already have an account.</p>
+                  <button className={styles.ghost} onClick={() => togglePanel(true)}>
+                    Log In
+                  </button>
+                </div>
               </div>
             </div>
           </div>

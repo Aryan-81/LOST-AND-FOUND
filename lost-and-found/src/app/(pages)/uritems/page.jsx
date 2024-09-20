@@ -33,7 +33,7 @@ export default function Items() {
 
             <div className={styles.items}>
                 <div className={styles.head}>
-                    <h1>Items</h1>
+                    <h1>Your Items</h1>
 
                     <div className={styles.customRadioHolder}>
                         {options.map((option, index) => (
@@ -65,6 +65,7 @@ export default function Items() {
                             usr={item.staus}
                             usrid={`by ${item.usr}`}
                             description={item.description}
+                            editAcess={true}
                         />
                     ))}
                 </div>

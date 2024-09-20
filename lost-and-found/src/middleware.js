@@ -7,14 +7,14 @@ export async function middleware(request) {
   const token = await getToken({ req: request });
   const url = request.nextUrl;
 
-  // If user has a token and tries to access login or signup, redirect to /home
-  if (token && (url.pathname.startsWith('/login') || url.pathname.startsWith('/signup'))) {
+  // If user has a token and tries to access auth or signup, redirect to /home
+  if (token && (url.pathname.startsWith('/auth') || url.pathname.startsWith('/signup'))) {
     return NextResponse.redirect(new URL('/home', request.url));
   }
 
-  // If user doesn't have a token and tries to access protected routes, redirect to login
-  if (!token && !(url.pathname.startsWith('/login')) ) {
-    return NextResponse.redirect(new URL('/login', request.url));
+  // If user doesn't have a token and tries to access protected routes, redirect to auth
+  if (!token && !(url.pathname.startsWith('/auth')) ) {
+    return NextResponse.redirect(new URL('/auth?action=login', request.url));
   }
 
   // Allow the request to proceed if user is authenticated or accessing public routes
@@ -23,5 +23,5 @@ export async function middleware(request) {
 
 // Set up route matching for middleware
 export const config = {
-  matcher: ['/login/:path*','/home/:path*', '/form/:path*','/items/:path*','/lost/:path*','/found/:path*','/feedback/:path*'],  // Add any other protected routes here
+  matcher: ['/auth/:path*','/home/:path*', '/form/:path*','/items/:path*','/lost/:path*','/found/:path*','/feedback/:path*','/profile/:path*'],  // Add any other protected routes here
 };
