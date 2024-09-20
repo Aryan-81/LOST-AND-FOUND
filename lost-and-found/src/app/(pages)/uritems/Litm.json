@@ -1,0 +1,82 @@
+[
+    {
+        "obj": "wallet",
+        "usr": "unknown",
+        "usrid": "20xxDEPxxxx",
+        "description": "A black leather wallet with multiple cards and some cash.",
+        "staus": "found",
+        "uploadDate": "22-07-2024"
+    },
+    {
+        "obj": "phone",
+        "usr": "John Doe",
+        "usrid": "20xxDEP0012",
+        "description": "A blue iPhone 12 with a cracked screen.",
+        "staus": "lost",
+        "uploadDate": "20-07-2024"
+    },
+    {
+        "obj": "keys",
+        "usr": "Jane Smith",
+        "usrid": "20xxDEP0034",
+        "description": "A set of car keys with a red keychain.",
+        "staus": "found",
+        "uploadDate": "23-07-2024"
+    },
+    {
+        "obj": "backpack",
+        "usr": "unknown",
+        "usrid": "20xxDEP0056",
+        "description": "A black backpack containing books and a laptop.",
+        "staus": "lost",
+        "uploadDate": "18-07-2024"
+    },
+    {
+        "obj": "watch",
+        "usr": "Alex Johnson",
+        "usrid": "20xxDEP0078",
+        "description": "A silver wristwatch with a leather strap.",
+        "staus": "found",
+        "uploadDate": "25-07-2024"
+    },
+    {
+        "obj": "laptop",
+        "usr": "Chris Lee",
+        "usrid": "20xxDEP0090",
+        "description": "A Dell laptop in a gray case.",
+        "staus": "lost",
+        "uploadDate": "24-07-2024"
+    },
+    {
+        "obj": "sunglasses",
+        "usr": "unknown",
+        "usrid": "20xxDEP0112",
+        "description": "A pair of black Ray-Ban sunglasses.",
+        "staus": "found",
+        "uploadDate": "19-07-2024"
+    },
+    {
+        "obj": "hat",
+        "usr": "Emily Davis",
+        "usrid": "20xxDEP0134",
+        "description": "A blue baseball cap with a team logo.",
+        "staus": "lost",
+        "uploadDate": "21-07-2024"
+    },
+    {
+        "obj": "umbrella",
+        "usr": "Michael Brown",
+        "usrid": "20xxDEP0156",
+        "description": "A black umbrella with a wooden handle.",
+        "staus": "found",
+        "uploadDate": "23-07-2024"
+    },
+    {
+        "obj": "earbuds",
+        "usr": "unknown",
+        "usrid": "20xxDEP0178",
+        "description": "A pair of white wireless earbuds in a small case.",
+        "staus": "lost",
+        "uploadDate": "22-07-2024"
+    }
+]

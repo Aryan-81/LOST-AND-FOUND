@@ -3,9 +3,11 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "@/api/*": ["./src/api/*"],
-      "@/app/*": ["./src/app/*"]
+      "@/api/*": ["src/app/api/*"],
+      "@/app/*": ["src/app/*"],
+      "@/lib/*": ["src/lib/*"],
+      "@/components/*":["src/components/*"]
     }
   },
-  "include": ["src"]
+  "include": ["src", "src/app/api","src/lib", "public/session"]
 }
