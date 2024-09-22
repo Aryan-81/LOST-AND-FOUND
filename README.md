@@ -5,7 +5,6 @@ A web application built with Next.js for managing lost and found items at a coll
 ## Table of Contents
 
 - [Installation](#installation)
-- [Project Structure](#project-structure)
 - [Features](#features)
 - [Usage](#usage)
 - [Environment Variables](#environment-variables)
@@ -46,6 +45,14 @@ A web application built with Next.js for managing lost and found items at a coll
 - **Profile Management:** Users can manage their profiles and view their reported items.
 - **API Integration:** Robust API routes for handling authentication and item management.
 - **Database Management:** Utilizes PostgreSQL for reliable data storage, managed through Prisma ORM.
+
+ - /home : ![Screenshot 2024-09-23 011432](https://github.com/user-attachments/assets/94b964b8-0a1c-4911-bafd-2f62e3d59076)
+
+ - /items : ![Screenshot 2024-09-23 011041](https://github.com/user-attachments/assets/cb4b1432-5405-4f16-8700-318c51e4896c)
+   ![Screenshot 2024-09-23 011112](https://github.com/user-attachments/assets/c57ade8e-6f0a-4c09-b3b2-a3aea9ec28a7)
+
+ - /form : ![Screenshot 2024-09-23 011152](https://github.com/user-attachments/assets/cfe61db4-e9cd-42ba-afe4-8c04d601b6bf)
+
 
 ## Usage
 
