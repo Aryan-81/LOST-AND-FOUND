@@ -1,0 +1,60 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+// Define PostgreSQL as the database
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Define the Client generator
+generator client {
+  provider = "prisma-client-js"
+}
+
+// Define the Users table
+model users {
+  usr_id        Int      @id @default(autoincrement()) // Primary key with auto-increment
+  email         String   @db.VarChar(255) @unique     // User email
+  name          String?  @db.VarChar(100)             // User name (optional)
+  hash_password String   @db.VarChar(255)             // Hashed password
+  createdAt     DateTime? @default(now())              // Timestamp for creation, can be null
+  lastseen      DateTime? @updatedAt                    // Timestamp for last update, can be null
+  lostItems     lostitem[]  @relation("UserLostItems") // Relation to lost items
+  foundItems    founditem[]  @relation("UserFoundItems") // Relation to found items
+
+}
+
+// Define the LostItem table
+model lostitem {
+  itemid            Int      @id @default(autoincrement()) // Item ID with 'L' prefix
+  userId            Int
+  user              users @relation("UserLostItems", fields: [userId], references: [usr_id], onDelete: Cascade) // Relation to users
+  name              String?  @db.VarChar(255)                                          // Item name (optional)
+  last_seen_date    DateTime? @db.Date                                                 // Last seen date (optional)
+  last_seen_place   String?  @db.VarChar(255)                                          // Last seen place (optional)
+  contact_info      String   @db.VarChar(255)                                          // Contact information
+  item_description  String?  @db.Text                                                  // Description of the item (optional)
+  createdAt         DateTime @default(now())                                          // Timestamp for creation
+  updatedAt         DateTime @updatedAt                                                // Timestamp for last update
+  status            String   @db.VarChar(50) @default("active") // New field for status
+}
+
+// Define the FoundItem table
+model founditem {
+  itemid            Int      @id @default(autoincrement()) // Item ID with 'F' prefix
+  userId            Int
+  user              users @relation("UserFoundItems", fields: [userId], references: [usr_id], onDelete: Cascade) // Relation to users// Relation to users
+  name              String?  @db.VarChar(255)                                            // Item name (optional)
+  found_date        DateTime? @db.Date                                                   // Found date (optional)
+  found_place       String?  @db.VarChar(255)                                            // Found place (optional)
+  contact_info      String   @db.VarChar(255)                                            // Contact information
+  item_description  String?  @db.Text                                                    // Description of the item (optional)
+  createdAt         DateTime @default(now())                                          // Timestamp for creation
+  updatedAt         DateTime @updatedAt                                                // Timestamp for last update
+  status            String   @db.VarChar(50) @default("active") // New field for status
+}
+

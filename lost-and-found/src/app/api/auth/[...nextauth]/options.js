@@ -1,6 +1,5 @@
 // [...nextauth]/option 
 import Credentials from 'next-auth/providers/credentials';
-
 import { pool } from '@/lib/db';
 import bcrypt from 'bcrypt';
 
